@@ -6,9 +6,9 @@ export STICKER_H=1090
 export COLORS=($(ls -1 colors/*.png))
 export LANGUAGES=( rus eng )
 for lang in "${LANGUAGES[@]}"; do
-    rm -rf cards-${lang} stickers-${lang}
+    rm -rf cards-${lang} stickers-${lang} tts-${lang}
     sync
-    mkdir cards-${lang} stickers-${lang}
+    mkdir cards-${lang} stickers-${lang} tts-${lang}
     line_counter=1
     color_counter=0
     while read line; do
@@ -76,10 +76,10 @@ for lang in "${LANGUAGES[@]}"; do
     rm -f fallacies-${lang}.png
     montage_list=$(ls -1 cards-${lang}/*-final.png | grep -v 00-)
     montage ${montage_list} -tile 1x9 -geometry +0+0 miff:- | montage - -geometry +0+0 -tile 5x1 fallacies-${lang}.png
-    # TTS deck montage
-    rm -f fallacies-tts-deck-${lang}.png
+    # Tabletop Simulator resources montage
+    tts_file_prefix=tts-${lang}/fallacies-tts
     montage_list_tts_deck=$(ls -1 cards-${lang}/*-final.png)
-    montage ${montage_list_tts_deck} -tile 10x5 -geometry +0+0 fallacies-tts-deck-${lang}.png
+    montage ${montage_list_tts_deck} -tile 10x5 -geometry +0+0 tts-${lang}/fallacies-tts-deck-${lang}.png
     # Stickers montage
     montage_list_single=$(ls -1 stickers-${lang}/*-final.png)
     montage_list_double=$(for item in $montage_list_single; do echo $item; echo $item; done)
