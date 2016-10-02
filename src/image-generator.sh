@@ -76,8 +76,13 @@ for lang in "${LANGUAGES[@]}"; do
     rm -f fallacies-${lang}.png
     montage_list=$(ls -1 cards-${lang}/*-final.png | grep -v 00-)
     montage ${montage_list} -tile 1x9 -geometry +0+0 miff:- | montage - -geometry +0+0 -tile 5x1 fallacies-${lang}.png
+    # TTS deck montage
+    rm -f fallacies-tts-deck-${lang}.png
+    montage_list_tts_deck=$(ls -1 cards-${lang}/*-final.png)
+    montage ${montage_list_tts_deck} -tile 10x5 -geometry +0+0 fallacies-tts-deck-${lang}.png
     # Stickers montage
     montage_list_single=$(ls -1 stickers-${lang}/*-final.png)
     montage_list_double=$(for item in $montage_list_single; do echo $item; echo $item; done)
-    montage $montage_list_double -tile 5x5 -geometry +10+10 stickers-${lang}/stickers-${lang}-tile.png
+    montage $montage_list_single -tile 5x5 -geometry +10+10 stickers-${lang}/stickers-single-${lang}-tile.png
+    montage $montage_list_double -tile 5x5 -geometry +10+10 stickers-${lang}/stickers-double-${lang}-tile.png
 done
