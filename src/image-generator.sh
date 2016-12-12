@@ -78,7 +78,7 @@ for lang in "${LANGUAGES[@]}"; do
     done < fallacies-${lang}.txt
     # Sheet montage
     rm -f fallacies-${lang}.png
-    montage_list=$(ls -1 cards-${lang}/*-final.png | grep -v 00-)
+    montage_list=$(ls -1 cards-${lang}/*-final.png)
     montage ${montage_list} -tile 1x9 -geometry +0+0 miff:- | montage - -geometry +0+0 -tile 5x1 fallacies-${lang}.png
     # Tabletop Simulator resources montage
     tts_file_prefix=tts-${lang}/fallacies-tts
