@@ -24,10 +24,8 @@ for lang in "${LANGUAGES[@]}"; do
                 convert ${COLORS[$color_counter]} -resize ${CARD_W}x${CARD_H}\! ${card_file_prefix}-stage0.png
                 # Fallacy name
                 convert -background transparent -font DejaVu-Sans-Bold -pointsize ${HEAD_FONT_SIZE} -fill white \
-                    -gravity center label:"$line" ${card_file_prefix}-stage1-text.png
-                convert ${card_file_prefix}-stage1-text.png -gravity center -background transparent \
-                    -extent ${CARD_W}x80 ${card_file_prefix}-stage1-resized.png
-                convert ${card_file_prefix}-stage0.png -page +0+10 ${card_file_prefix}-stage1-resized.png \
+                    -gravity center -size ${CARD_W}x80 caption:"$line" ${card_file_prefix}-stage1-text.png
+                convert ${card_file_prefix}-stage0.png -page +0+10 ${card_file_prefix}-stage1-text.png \
                     -flatten ${card_file_prefix}-stage1.png
                 ;;
             2)
@@ -39,26 +37,20 @@ for lang in "${LANGUAGES[@]}"; do
             3)
                 # Fallacy description
                 convert -background transparent -font DejaVu-Sans-Bold -pointsize ${DESC_FONT_SIZE} -fill white \
-                    -gravity center label:"$line" ${card_file_prefix}-stage3-text.png
-                convert ${card_file_prefix}-stage3-text.png -gravity north -background transparent \
-                    -extent 735x170 ${card_file_prefix}-stage3-resized.png
-                convert ${card_file_prefix}-stage2.png -page +25+120 ${card_file_prefix}-stage3-resized.png \
+                    -gravity center -size 735x170 caption:"$line" ${card_file_prefix}-stage3-text.png
+                convert ${card_file_prefix}-stage2.png -page +25+110 ${card_file_prefix}-stage3-text.png \
                     -flatten ${card_file_prefix}-stage3.png
                 ;;
             4)
                 # Fallacy example
                 convert -background transparent -font Liberation-Sans-Bold-Italic -pointsize ${EXAMPLE_FONT_SIZE} \
-                    -fill white -gravity center label:"$line" ${card_file_prefix}-stage4-text.png
-                convert ${card_file_prefix}-stage4-text.png -gravity north -background transparent \
-                    -extent 380x360 ${card_file_prefix}-stage4-resized.png
-                convert ${card_file_prefix}-stage3.png -page +315+315 ${card_file_prefix}-stage4-resized.png \
+                    -fill white -gravity center -size 380x360 caption:"$line" ${card_file_prefix}-stage4-text.png
+                convert ${card_file_prefix}-stage3.png -page +315+270 ${card_file_prefix}-stage4-text.png \
                     -flatten ${card_file_prefix}-stage4.png
                 # Fallacy number
                 convert -background transparent -font DejaVu-Sans-Bold -pointsize ${NUMBER_FONT_SIZE} -fill white \
-                    -gravity center label:"$color_counter" ${card_file_prefix}-number.png
-                convert ${card_file_prefix}-number.png -gravity center -background transparent \
-                    -extent 40x30 ${card_file_prefix}-number-resized.png
-                convert ${card_file_prefix}-stage4.png -page +740+580 ${card_file_prefix}-number-resized.png \
+                    -gravity center -size 40x30 caption:"$color_counter" ${card_file_prefix}-number.png
+                convert ${card_file_prefix}-stage4.png -page +740+580 ${card_file_prefix}-number.png \
                     -flatten ${card_file_prefix}-final.png
                 # Sticker
                 convert ${COLORS[$color_counter]} -resize ${STICKER_W}x${STICKER_H}\! ${sticker_file_prefix}-stage0.png
@@ -66,7 +58,7 @@ for lang in "${LANGUAGES[@]}"; do
                     ${sticker_file_prefix}-stage1.png
                 composite -gravity center ${sticker_file_prefix}-stage1.png ${sticker_file_prefix}-stage0.png \
                     ${sticker_file_prefix}-stage2.png
-                convert ${sticker_file_prefix}-stage2.png -page +655+1050 ${card_file_prefix}-number-resized.png \
+                convert ${sticker_file_prefix}-stage2.png -page +655+1050 ${card_file_prefix}-number.png \
                     -flatten ${sticker_file_prefix}-final.png
                 ;;
         esac
