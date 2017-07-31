@@ -1,8 +1,8 @@
 #!/bin/bash
 export CARD_W=785
 export CARD_H=620
-export STICKER_W=700
-export STICKER_H=1090
+export STICKER_W=785
+export STICKER_H=1222
 export HEAD_FONT_SIZE=36
 export DESC_FONT_SIZE=28
 export EXAMPLE_FONT_SIZE=23
@@ -30,9 +30,7 @@ for lang in "${LANGUAGES[@]}"; do
                 ;;
             2)
                 # Fallacy icon
-                convert $line -filter Lanczos -distort Resize 300x300 ${card_file_prefix}-icon-resized.png
-                convert ${card_file_prefix}-stage1.png -page +10+300 ${card_file_prefix}-icon-resized.png \
-                    -flatten ${card_file_prefix}-stage2.png
+                convert ${card_file_prefix}-stage1.png -page +10+300 $line -flatten ${card_file_prefix}-stage2.png
                 ;;
             3)
                 # Fallacy description
@@ -54,11 +52,9 @@ for lang in "${LANGUAGES[@]}"; do
                     -flatten ${card_file_prefix}-final.png
                 # Sticker
                 convert ${COLORS[$color_counter]} -resize ${STICKER_W}x${STICKER_H}\! ${sticker_file_prefix}-stage0.png
-                convert ${card_file_prefix}-stage4.png -filter Lanczos -distort Resize ${STICKER_W}x \
+                composite -gravity center ${card_file_prefix}-stage4.png ${sticker_file_prefix}-stage0.png \
                     ${sticker_file_prefix}-stage1.png
-                composite -gravity center ${sticker_file_prefix}-stage1.png ${sticker_file_prefix}-stage0.png \
-                    ${sticker_file_prefix}-stage2.png
-                convert ${sticker_file_prefix}-stage2.png -page +655+1050 ${card_file_prefix}-number.png \
+                convert ${sticker_file_prefix}-stage1.png -page +735+1178 ${card_file_prefix}-number.png \
                     -flatten ${sticker_file_prefix}-final.png
                 ;;
         esac
