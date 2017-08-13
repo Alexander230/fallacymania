@@ -1,14 +1,14 @@
 #!/bin/bash
-export CARD_W=785
-export CARD_H=620
-export STICKER_W=785
-export STICKER_H=1222
-export HEAD_FONT_SIZE=36
-export DESC_FONT_SIZE=28
-export EXAMPLE_FONT_SIZE=23
-export NUMBER_FONT_SIZE=25
-export COLORS=($(ls -1 colors/*.png))
-export LANGUAGES=( rus eng )
+CARD_W=785
+CARD_H=620
+STICKER_W=785
+STICKER_H=1222
+HEAD_FONT_SIZE=36
+DESC_FONT_SIZE=28
+EXAMPLE_FONT_SIZE=23
+NUMBER_FONT_SIZE=25
+COLORS=($(ls -1 colors/*.png))
+LANGUAGES=( rus eng )
 for lang in "${LANGUAGES[@]}"; do
     rm -rf cards-${lang} stickers-${lang} tts-${lang}
     sync
