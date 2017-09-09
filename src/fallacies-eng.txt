@@ -10,14 +10,14 @@ Appeal to ridicule
 icons/высмеивание.png
 Laughing at argument without any\\nrefutation of the argument.
 "Sure my worthy opponent\\nclaims that we should lower\\ntuition, but that is just\\nlaughable."
+Strawman
+icons/соломенное_чучело.png
+Misrepresenting someone's\\nargument to make it easier to\\nattack.
+After Will said that we\\nshould put more money into\\nhealth and education,\\nWarren responded by saying\\nthat he was surprised that\\nWill hates our country so\\nmuch that he wants to leave\\nit defenceless by cutting\\nmilitary spending.
 Argumentum ad\\ncellarium
 icons/аргумент_к_социальной_неуспешности.png
 Attack opponent directly by\\naccusing him of still being in\\n"mom's basement".
 "How can you prove anything\\nif you have no wife, no\\nchildren? You're still living\\nwith parents!"
-Genetic fallacy
-icons/генетическая_логическая_ошибка.png
-Judging something good or bad on\\nthe basis of where it comes from, or\\nfrom whom it comes.
-"This food is imported, so it\\ncan't be good."
 Tu quoque
 icons/а_сам_какой.png
 Avoid having to engage with\\ncriticism by turning it back on the\\naccuser - answering criticism with\\ncriticism.
@@ -26,10 +26,78 @@ Ad hominem
 icons/переход_на_личности.png
 Attacking your opponent's\\ncharacter or personal traits in an\\nattempt to undermine their\\nargument.
 After Sally presents an\\neloquent and compelling\\ncase for a more equitable\\ntaxation system, Sam asks\\nthe audience whether we\\nshould believe anything from\\na woman who isn't married,\\nwas once arrested, and\\nsmells a bit weird.
-Strawman
-icons/соломенное_чучело.png
-Misrepresenting someone's\\nargument to make it easier to\\nattack.
-After Will said that we\\nshould put more money into\\nhealth and education,\\nWarren responded by saying\\nthat he was surprised that\\nWill hates our country so\\nmuch that he wants to leave\\nit defenceless by cutting\\nmilitary spending.
+Style over substance
+icons/форма_поверх_содержания.png
+Using language or rhetoric to\\nenhance the appeal of an argument,\\nbut not its validity, or arguing the\\nmethod of presentation affects the\\ntruth of a claim.
+"Well, how can I disagree\\nwith such a smart young\\nman?"
+Genetic fallacy
+icons/генетическая_логическая_ошибка.png
+Judging something good or bad on\\nthe basis of where it comes from, or\\nfrom whom it comes.
+"This food is imported, so it\\ncan't be good."
+Red Herring
+icons/отвлекающий_манёвр.png
+Introducing irrelevant material to\\nthe argument to distract and lead\\ntowards a different conclusion.
+"The Senator needn't\\naccount for irregularities in\\nhis expenses. After all, there\\nare other senators who have\\ndone far worse things."
+Loaded question
+icons/наводящий_вопрос.png
+Asking a question that has an\\nassumption built into it, when in\\nfact that assumption can be false or\\ncontentious.
+"When did you stop spending\\nall your money in the\\ncasino?"
+Ambiguity
+icons/двусмысленность.png
+Using double meanings or\\nambiguities of language to mislead\\nor misrepresent the truth.
+"I'm making a very good\\noffer to you!"
+False analogy
+icons/ложная_аналогия.png
+Use of a flawed or self-refuting\\nanalogy.
+"The universe is like a watch.\\nA watch must have a\\nwatchmaker. The universe,\\nbeing like a watch, must\\nhave a designer."
+Contradiction
+icons/противоречие.png
+Saying two contradictory things in\\nthe same argument.
+"We support the right of\\npeople to self-determination\\nand separation, but who\\ncalls for separatism - go to\\njail!"\\n"No one should be killed.\\nLet's hang a criminal."
+Circular logic
+icons/порочный_круг.png
+A conclusion is derived from a\\npremise based on the conclusion.
+"Stripping privacy rights only\\nmatters to those with\\nsomething to hide. You must\\nhave something to hide if\\nyou oppose privacy\\nprotection."
+The fallacy fallacy
+icons/ошибка_в_ошибке.png
+Presuming that because a claim has\\nbeen poorly argued, or a fallacy has\\nbeen made, that it is necessarily\\nwrong.
+Recognising that Amanda\\nhad committed a fallacy in\\narguing that we should eat\\nhealthy food because a\\nnutritionist said it was\\npopular, Alyse said we should\\ntherefore eat bacon double\\ncheeseburgers every day.
+Argument by assertion
+icons/аргумент_к_уверенности.png
+The belief that if you say something\\nenough times, it eventually\\nbecomes true and therefore you\\nwin the argument.
+- This is true.\\n- Why?\\n- Because it's true. I know it!\\n- How do you know?\\n- I'm 100% sure that I'm right!
+Anecdotal evidence
+icons/случай_из_жизни.png
+Using personal experience or an\\nisolated example instead of a valid\\nargument, especially to dismiss\\nstatistics.
+Jason said that that was all\\ncool and everything, but his\\ngrandfather smoked, like, 30\\ncigarettes a day and lived\\nuntil 97 - so don't believe\\neverything you read about\\nmeta analyses of sound\\nstudies showing proven\\ncausal relationships.
+Bandwagon
+icons/мнение_масс.png
+Appealing to popularity or the fact\\nthat many people do something as\\nan attempted form of validation.
+"Millions of people believe in\\nastrology, therefore it\\nworks!"
+Galileo gambit
+icons/уловка_галилея.png
+If someone is going against the tide\\nof popular thinking, they must be right\\nbecause the likes of Galileo were right.
+"They made fun of Galileo,\\nand he was right. They\\nmake fun of me, therefore\\nI am right." (While in\\nreality, Galileo was\\nright because he had\\nevidence)
+Appeal to authority
+icons/апелляция_к_авторитету.png
+Using the opinion or position of an\\nauthority figure, or institution of\\nauthority, in place of an actual\\nargument.
+"There will be no crisis in the\\nnext year! The Minister of\\neconomy said that!"
+Anonymous authority
+icons/анонимный_авторитет.png
+A reference to the unknown\\nscientists or authority without\\nnames and other details in order to\\nmake the information credible.
+"Scientists know for a long\\ntime that people with dark\\nhair are smarter than people\\nwith white hair."
+Appeal to incredulity
+icons/аргумент_к_невероятности.png
+Saying that because one finds\\nsomething difficult to understand\\nthat it's therefore not true.
+Kirk drew a picture of a fish\\nand a human and with\\neffusive disdain asked\\nRichard if he really thought\\nwe were stupid enough to\\nbelieve that a fish somehow\\nturned into a human through\\njust, like, random things\\nhappening over time.
+Appeal to tradition
+icons/апелляция_к_традиции.png
+When it is assumed that something\\nis better or correct simply because\\nit is older, traditional, or "always\\nhas been done."
+"Women should stay at\\nhome, because women have\\nalways stayed at home."\\n"Tobacco was part of\\nindigenous American\\nmedicine for centuries, so it\\nmust be good, right?."
+Appeal to novelty
+icons/аргументация_новизной.png
+Supposing something is better\\nbecause it is new or newer.
+"Awesome! The latest\\nversion of this operating\\nsystem is going to make my\\ncomputer faster and\\nbetter..."
 Appeal to nature
 icons/апелляция_к_природе.png
 Making the argument that because\\nsomething is 'natural' it is therefore\\nvalid, justified, inevitable, good or\\nideal.
@@ -42,70 +110,14 @@ Wishful thinking
 icons/желаемое_за_действительное.png
 The claim that something is true\\nbecause you've thought about it\\nand would prefer it to be true.
 - Paradise exists. There are\\ngood people go after death.\\n- Why is this true?\\n- Because I'm good person\\nand I want to get there. I like\\nthis idea.
-Style over substance
-icons/форма_поверх_содержания.png
-Using language or rhetoric to\\nenhance the appeal of an argument,\\nbut not its validity, or arguing the\\nmethod of presentation affects the\\ntruth of a claim.
-"Well, how can I disagree\\nwith such a smart young\\nman?"
 Argument from\\nconsequences
 icons/аргумент_к_последствиям.png
 Logical fallacy that the perceived\\noutcomes of a proposition can\\ndetermine its veracity.
 "Belief in the theory of\\nevolution leads to eugenics;\\ntherefore the theory of\\nevolution is false!"
-Appeal to incredulity
-icons/аргумент_к_невероятности.png
-Saying that because one finds\\nsomething difficult to understand\\nthat it's therefore not true.
-Kirk drew a picture of a fish\\nand a human and with\\neffusive disdain asked\\nRichard if he really thought\\nwe were stupid enough to\\nbelieve that a fish somehow\\nturned into a human through\\njust, like, random things\\nhappening over time.
-Appeal to novelty
-icons/аргументация_новизной.png
-Supposing something is better\\nbecause it is new or newer.
-"Awesome! The latest\\nversion of this operating\\nsystem is going to make my\\ncomputer faster and\\nbetter..."
-Perfectionist fallacy
-icons/перфекционистское_заблуждение.png
-Assuming that the only option on\\nthe table is perfect success, then\\nrejecting anything that will not\\nwork perfectly.
-"What's the point of this anti-\\ndrunk driving campaign?\\nPeople are still going to\\ndrink and drive no matter\\nwhat."
-Bandwagon
-icons/мнение_масс.png
-Appealing to popularity or the fact\\nthat many people do something as\\nan attempted form of validation.
-"Millions of people believe in\\nastrology, therefore it\\nworks!"
-Appeal to authority
-icons/апелляция_к_авторитету.png
-Using the opinion or position of an\\nauthority figure, or institution of\\nauthority, in place of an actual\\nargument.
-"There will be no crisis in the\\nnext year! The Minister of\\neconomy said that!"
-Anonymous authority
-icons/анонимный_авторитет.png
-A reference to the unknown\\nscientists or authority without\\nnames and other details in order to\\nmake the information credible.
-"Scientists know for a long\\ntime that people with dark\\nhair are smarter than people\\nwith white hair."
-Argument by assertion
-icons/аргумент_к_уверенности.png
-The belief that if you say something\\nenough times, it eventually\\nbecomes true and therefore you\\nwin the argument.
-- This is true.\\n- Why?\\n- Because it's true. I know it!\\n- How do you know?\\n- I'm 100% sure that I'm right!
-Two wrongs make a\\nright
-icons/два_зла_образуют_добро.png
-It is a type of tu quoque logical\\nfallacy based on the idea that wrongs\\ncommitted by one party can be used\\nto excuse wrongs committed by\\nothers.
-"America illegally invaded\\nother countries, so why can't\\nRussia?"
-Appeal to tradition
-icons/апелляция_к_традиции.png
-When it is assumed that something\\nis better or correct simply because\\nit is older, traditional, or "always\\nhas been done."
-"Women should stay at\\nhome, because women have\\nalways stayed at home."\\n"Tobacco was part of\\nindigenous American\\nmedicine for centuries, so it\\nmust be good, right?."
-Galileo gambit
-icons/уловка_галилея.png
-If someone is going against the tide\\nof popular thinking, they must be right\\nbecause the likes of Galileo were right.
-"They made fun of Galileo,\\nand he was right. They\\nmake fun of me, therefore\\nI am right." (While in\\nreality, Galileo was\\nright because he had\\nevidence)
-Circular logic
-icons/порочный_круг.png
-A conclusion is derived from a\\npremise based on the conclusion.
-"Stripping privacy rights only\\nmatters to those with\\nsomething to hide. You must\\nhave something to hide if\\nyou oppose privacy\\nprotection."
-The fallacy fallacy
-icons/ошибка_в_ошибке.png
-Presuming that because a claim has\\nbeen poorly argued, or a fallacy has\\nbeen made, that it is necessarily\\nwrong.
-Recognising that Amanda\\nhad committed a fallacy in\\narguing that we should eat\\nhealthy food because a\\nnutritionist said it was\\npopular, Alyse said we should\\ntherefore eat bacon double\\ncheeseburgers every day.
-Contradiction
-icons/противоречие.png
-Saying two contradictory things in\\nthe same argument.
-"We support the right of\\npeople to self-determination\\nand separation, but who\\ncalls for separatism - go to\\njail!"\\n"No one should be killed.\\nLet's hang a criminal."
-Association fallacy
-icons/ассоциативная_ошибка.png
-Associating the values of one group\\nwith the values of another due to\\nsuperficial or coincidental\\nsimilarities.
-"Stalin was an atheist.\\nStalin had millions of people\\nkilled.\\nTherefore, atheism is evil."
+Slippery slope
+icons/скользкий_путь.png
+Asserting that if we allow A to happen,\\nthen Z will consequently happen too,\\ntherefore A should not happen.
+Colin Closet assert that\\nif we allow same-sex couples\\nto marry, then the next thing\\nwe know we'll be allowing\\npeople to marry their parents,\\ntheir cars and even monkeys.
 Appeal to probability
 icons/аргументация_возможностью.png
 Assuming because something could\\nhappen, it will inevitably happen.
@@ -114,66 +126,54 @@ After this, therefore\\nbecause of this
 icons/после_значит_вследствие.png
 Saying that because event A\\nhappened before B, A must have\\ncaused B.
 "There are my lucky\\ntrousers. Sometimes good\\nthings happen to me when I\\nwear them."\\n"The rooster crows before\\nsunrise, therefore the\\ncrowing rooster causes the\\nsun to rise."
-Moving the goalposts
-icons/специальные_требования.png
-Changing evidential requirements in\\nan argument once they have been met.
-"I really meant that I can\\nread your mind only if you\\nbelieve in my ability."
-Composition/division
-icons/часть-целое.png
-Assuming that what's true about\\none part of something has to be\\napplied to all, or other, parts of it.
-Daniel was a precocious\\nchild and had a liking for\\nlogic. He reasoned that\\natoms are invisible, and that\\nhe was made of atoms and\\ntherefore invisible too.\\nUnfortunately, despite his\\nthinky skills, he lost the\\ngame of hide and go seek.
-Anecdotal evidence
-icons/случай_из_жизни.png
-Using personal experience or an\\nisolated example instead of a valid\\nargument, especially to dismiss\\nstatistics.
-Jason said that that was all\\ncool and everything, but his\\ngrandfather smoked, like, 30\\ncigarettes a day and lived\\nuntil 97 - so don't believe\\neverything you read about\\nmeta analyses of sound\\nstudies showing proven\\ncausal relationships.
 Burden of proof
 icons/бремя_доказательства.png
 Saying that the burden of proof lies\\nnot with the person making the\\nclaim, but with someone else to\\ndisprove.
 Bertrand declares that a\\nteapot is, at this very\\nmoment, in orbit around the\\nSun between the Earth and\\nMars, and that because no\\none can prove him\\nwrong his claim is therefore\\na valid one.
-Middle ground
-icons/золотая_середина.png
-Saying that a compromise, or\\nmiddle point, between two\\nextremes is the truth.
-Holly said that vaccinations\\ncaused autism in children,\\nbut her scientifically well\\n-read friend Caleb said that\\nthis claim had been\\ndebunked and proven false.\\nTheir friend Alice offered a\\ncompromise that\\nvaccinations cause some\\nautism.
-Confirmation bias
-icons/ошибка_подтверждения.png
-Cherry-picking evidence that\\nsupports your idea while ignoring\\ncontradicting evidence.
-"It's obvious 9-11 was a\\nAmerican-goverment led\\nconspiracy to justify war in\\nIraq and Afghanistan. No\\nplane hit the Pentagon. The\\nTwin Towers collapse was a\\ncontrolled demolition... etc"
 Unfalsifability
 icons/нефальсифицируемость.png
 Offering a claim that cannot be\\nproven false, because there is no\\nway to check if it is false or not.
 "He lied because he's\\npossessed by demons."
-Hasty generalization
-icons/поспешное_обобщение.png
-Drawing a general conclusion from\\na tiny sample.
-"I just got cut off by the\\nwoman driver in front.\\nWomen can't drive."
 Observer's mistake
 icons/ошибка_наблюдателя.png
 The situation when the observer\\nmakes the wrong conclusion because\\nof the inevitable subjectivity (or\\nunconsiously it adjusts to his opinion).
 Railroad crossings, which\\nobserved from a train\\nwindow, closed, and traffic\\nlights on them are red.
-Red Herring
-icons/отвлекающий_манёвр.png
-Introducing irrelevant material to\\nthe argument to distract and lead\\ntowards a different conclusion.
-"The Senator needn't\\naccount for irregularities in\\nhis expenses. After all, there\\nare other senators who have\\ndone far worse things."
-Slippery slope
-icons/скользкий_путь.png
-Asserting that if we allow A to happen,\\nthen Z will consequently happen too,\\ntherefore A should not happen.
-Colin Closet assert that\\nif we allow same-sex couples\\nto marry, then the next thing\\nwe know we'll be allowing\\npeople to marry their parents,\\ntheir cars and even monkeys.
+Moving the goalposts
+icons/специальные_требования.png
+Changing evidential requirements in\\nan argument once they have been met.
+"I really meant that I can\\nread your mind only if you\\nbelieve in my ability."
 Black-or-white
 icons/чёрное_и_белое.png
 Where two alternative states are\\npresented as the only possibilities,\\nwhen in fact more possibilities exist.
 Whilst rallying support for\\nhis plan to fundamentally\\nundermine citizens' rights,\\nthe Supreme Leader told the\\npeople they were either on\\nhis side, or on the side of the\\nenemy.
-Ambiguity
-icons/двусмысленность.png
-Using double meanings or\\nambiguities of language to mislead\\nor misrepresent the truth.
-"I'm making a very good\\noffer to you!"
-False analogy
-icons/ложная_аналогия.png
-Use of a flawed or self-refuting\\nanalogy.
-"The universe is like a watch.\\nA watch must have a\\nwatchmaker. The universe,\\nbeing like a watch, must\\nhave a designer."
-Loaded question
-icons/наводящий_вопрос.png
-Asking a question that has an\\nassumption built into it, when in\\nfact that assumption can be false or\\ncontentious.
-"When did you stop spending\\nall your money in the\\ncasino?"
+Middle ground
+icons/золотая_середина.png
+Saying that a compromise, or\\nmiddle point, between two\\nextremes is the truth.
+Holly said that vaccinations\\ncaused autism in children,\\nbut her scientifically well\\n-read friend Caleb said that\\nthis claim had been\\ndebunked and proven false.\\nTheir friend Alice offered a\\ncompromise that\\nvaccinations cause some\\nautism.
+Two wrongs make a\\nright
+icons/два_зла_образуют_добро.png
+It is a type of tu quoque logical\\nfallacy based on the idea that wrongs\\ncommitted by one party can be used\\nto excuse wrongs committed by\\nothers.
+"America illegally invaded\\nother countries, so why can't\\nRussia?"
+Perfectionist fallacy
+icons/перфекционистское_заблуждение.png
+Assuming that the only option on\\nthe table is perfect success, then\\nrejecting anything that will not\\nwork perfectly.
+"What's the point of this anti-\\ndrunk driving campaign?\\nPeople are still going to\\ndrink and drive no matter\\nwhat."
+Composition/division
+icons/часть-целое.png
+Assuming that what's true about\\none part of something has to be\\napplied to all, or other, parts of it.
+Daniel was a precocious\\nchild and had a liking for\\nlogic. He reasoned that\\natoms are invisible, and that\\nhe was made of atoms and\\ntherefore invisible too.\\nUnfortunately, despite his\\nthinky skills, he lost the\\ngame of hide and go seek.
+Hasty generalization
+icons/поспешное_обобщение.png
+Drawing a general conclusion from\\na tiny sample.
+"I just got cut off by the\\nwoman driver in front.\\nWomen can't drive."
+Confirmation bias
+icons/ошибка_подтверждения.png
+Cherry-picking evidence that\\nsupports your idea while ignoring\\ncontradicting evidence.
+"It's obvious 9-11 was a\\nAmerican-goverment led\\nconspiracy to justify war in\\nIraq and Afghanistan. No\\nplane hit the Pentagon. The\\nTwin Towers collapse was a\\ncontrolled demolition... etc"
+Association fallacy
+icons/ассоциативная_ошибка.png
+Associating the values of one group\\nwith the values of another due to\\nsuperficial or coincidental\\nsimilarities.
+"Stalin was an atheist.\\nStalin had millions of people\\nkilled.\\nTherefore, atheism is evil."
 Noncentral fallacy
 icons/презумпция_типичности.png
 X is in a category whose archetypal\\nmember gives us a certain emotional\\nreaction. Therefore, we should apply that\\nemotional reaction to X, even though it is\\nnot a central category member.
