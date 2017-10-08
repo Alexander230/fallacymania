@@ -1,8 +1,11 @@
 #!/bin/bash
+
+# Generating pdf images of sheets and stickers for printing
+./vector-image-generator.py
+
+# Generating png images for Tabletop Simulator
 CARD_W=785
 CARD_H=620
-STICKER_W=785
-STICKER_H=1222
 
 HEAD_FONT_SIZE=36
 DESC_FONT_SIZE=28
@@ -16,15 +19,15 @@ NUMBER_FONT=$HEAD_FONT
 COLORS=($(ls -1 colors/*.png))
 LANGUAGES=( rus eng )
 
+rm -rf cards tts
+sync
+mkdir cards tts
+
 for lang in "${LANGUAGES[@]}"; do
-    rm -rf cards-${lang} stickers-${lang} tts-${lang}
-    sync
-    mkdir cards-${lang} stickers-${lang} tts-${lang}
     line_counter=1
     color_counter=0
     while read line; do
-        card_file_prefix=cards-${lang}/$(printf '%02d' $color_counter)
-        sticker_file_prefix=stickers-${lang}/$(printf '%02d' $color_counter)
+        card_file_prefix=cards/$(printf '%02d' $color_counter)-${lang}
         case $line_counter in
             1)
                 # Background color
@@ -57,12 +60,6 @@ for lang in "${LANGUAGES[@]}"; do
                     -gravity center -size 40x30 caption:"$color_counter" ${card_file_prefix}-number.png
                 convert ${card_file_prefix}-stage4.png -page +740+580 ${card_file_prefix}-number.png \
                     -flatten ${card_file_prefix}-final.png
-                # Sticker
-                convert ${COLORS[$color_counter]} -resize ${STICKER_W}x${STICKER_H}\! ${sticker_file_prefix}-stage0.png
-                composite -gravity center ${card_file_prefix}-stage4.png ${sticker_file_prefix}-stage0.png \
-                    ${sticker_file_prefix}-stage1.png
-                convert ${sticker_file_prefix}-stage1.png -page +735+1178 ${card_file_prefix}-number.png \
-                    -flatten ${sticker_file_prefix}-final.png
                 ;;
         esac
         ((line_counter++))
@@ -72,16 +69,10 @@ for lang in "${LANGUAGES[@]}"; do
         fi
     done < fallacies-${lang}.txt
     # Sheet montage
-    rm -f fallacies-${lang}.png
-    montage_list=$(ls -1 cards-${lang}/*-final.png)
-    montage ${montage_list} -tile 1x9 -geometry +0+0 miff:- | montage - -geometry +0+0 -tile 5x1 fallacies-${lang}.png
-    # Tabletop Simulator resources montage
-    tts_file_prefix=tts-${lang}/fallacies-tts
-    montage_list_tts_deck=$(ls -1 cards-${lang}/*-final.png)
-    montage ${montage_list_tts_deck} -tile 10x5 -geometry +0+0 tts-${lang}/fallacies-tts-deck-${lang}.png
-    # Stickers montage
-    montage_list_single=$(ls -1 stickers-${lang}/*-final.png)
-    montage_list_double=$(for item in $montage_list_single; do echo $item; echo $item; done)
-    montage $montage_list_single -tile 5x5 -geometry +10+10 stickers-${lang}/stickers-single-${lang}-tile.png
-    montage $montage_list_double -tile 5x5 -geometry +10+10 stickers-${lang}/stickers-double-${lang}-tile.png
+    fallacies=$(ls -1 cards/???${lang}-final.png)
+    sheet=tts/fallacies-${lang}.png
+    montage ${fallacies} -tile 1x9 -geometry +0+0 miff:- | montage - -geometry +0+0 -tile 5x1 ${sheet}
+    # Cards montage
+    cards=tts/cards-${lang}.png
+    montage ${fallacies} -tile 10x5 -geometry +0+0 ${cards}
 done

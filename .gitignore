@@ -1,4 +1,4 @@
-src/cards-*
-src/stickers-*
-src/tts-*
-src/fallacies-*.png
+src/cards
+src/stickers
+src/tts
+src/fallacies-*.pdf
