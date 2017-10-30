@@ -6,7 +6,7 @@ from os import path, makedirs
 from pdfrw import PdfReader
 from pdfrw.buildxobj import pagexobj
 from pdfrw.toreportlab import makerl
-from reportlab.lib.colors import HexColor, white
+from reportlab.lib.colors import HexColor, white, black
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT, TA_LEFT
 from reportlab.lib.pagesizes import A3
 from reportlab.lib.styles import ParagraphStyle
@@ -283,6 +283,40 @@ def init_data():
             textColor=white
         )
     }
+    styles0 = {
+        'name': ParagraphStyle(
+            name='name',
+            fontName=name_font,
+            fontSize=name_font_size,
+            alignment=TA_CENTER,
+            leading=name_font_size,
+            textColor=black
+        ),
+        'desc': ParagraphStyle(
+            name='desc',
+            fontName=desc_font,
+            fontSize=desc_font_size,
+            alignment=TA_CENTER,
+            leading=desc_font_size,
+            textColor=black
+        ),
+        'example': ParagraphStyle(
+            name='example',
+            fontName=example_font,
+            fontSize=example_font_size,
+            alignment=TA_CENTER,
+            leading=example_font_size,
+            textColor=black
+        ),
+        'number': ParagraphStyle(
+            name='number',
+            fontName=number_font,
+            fontSize=number_font_size,
+            alignment=TA_CENTER,
+            textColor=black
+        )
+    }
+
 
     colors = {
         0: '#3CAFEE', 1: '#28A8EC', 2: '#159FEA', 3: '#1492D6', 4: '#1285C2',
@@ -299,11 +333,11 @@ def init_data():
 
     languages = ('rus', 'eng')
 
-    return conf, styles, colors, languages
+    return conf, styles, styles0, colors, languages
 
 
 def main():
-    conf, styles, colors, languages = init_data()
+    conf, styles, styles0, colors, languages = init_data()
     for language in languages:
         input_file_name = ''.join((conf['input_file_prefix'], language, conf['input_file_suffix']))
         with open(input_file_name) as input_file:
@@ -339,6 +373,8 @@ def main():
                 current_icon_fname = ''.join((conf['icons_path'], str(i // 4).rjust(2, '0'), conf['icons_suffix']))
                 current_icon = PdfImage(current_icon_fname)
                 current_bg_color = colors[i // 4]
+                if i == 3:
+                    current_bg_color = '#FFFFFF'
                 current_pdf_coords = ((i // 4) // conf['table_grid_y'] * conf['block_size_x'] + conf['page_border'],
                                       conf['page_size_y'] + conf['page_border']
                                       - ((i // 4) % conf['table_grid_y'] + 1) * conf['block_size_y'])
@@ -369,16 +405,19 @@ def main():
                                  conf['st_double_prefix'], str(i), conf['st_output_file_suffix']))
             st_double_out_canv.append(Canvas(file_name, pagesize=conf['page_size']))
 
-        for fallacy in fallacies:
-            draw_fallacy_box(conf, styles, canvas_game, fallacy, 'game')
+        for idx, fallacy in enumerate(fallacies):
+            current_styles = styles 
+            if idx == 0:
+                current_styles = styles0
+            draw_fallacy_box(conf, current_styles, canvas_game, fallacy, 'game')
             canv_st_single = st_single_out_canv[fallacy.number // (conf['st_table_grid_x'] * conf['st_table_grid_y'])]
             canv_st_double1 = st_double_out_canv[(fallacy.number * 2)
                                                  // (conf['st_table_grid_x'] * conf['st_table_grid_y'])]
             canv_st_double2 = st_double_out_canv[(fallacy.number * 2 + 1)
                                                  // (conf['st_table_grid_x'] * conf['st_table_grid_y'])]
-            draw_fallacy_box(conf, styles, canv_st_single, fallacy, 'st_single')
-            draw_fallacy_box(conf, styles, canv_st_double1, fallacy, 'st_double1')
-            draw_fallacy_box(conf, styles, canv_st_double2, fallacy, 'st_double2')
+            draw_fallacy_box(conf, current_styles, canv_st_single, fallacy, 'st_single')
+            draw_fallacy_box(conf, current_styles, canv_st_double1, fallacy, 'st_double1')
+            draw_fallacy_box(conf, current_styles, canv_st_double2, fallacy, 'st_double2')
 
         canvas_game.save()
         [canvas.save() for canvas in st_single_out_canv + st_double_out_canv]
