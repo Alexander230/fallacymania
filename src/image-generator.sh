@@ -28,12 +28,16 @@ for lang in "${LANGUAGES[@]}"; do
     color_counter=0
     while read line; do
         card_file_prefix=cards/$(printf '%02d' $color_counter)-${lang}
+        TEXT_COLOR=white
+        if [ $color_counter -eq 0 ]; then
+	    TEXT_COLOR=black
+        fi
         case $line_counter in
             1)
                 # Background color
                 convert ${COLORS[$color_counter]} -resize ${CARD_W}x${CARD_H}\! ${card_file_prefix}-stage0.png
                 # Fallacy name
-                convert -background transparent -font $HEAD_FONT -pointsize ${HEAD_FONT_SIZE} -fill white \
+                convert -background transparent -font $HEAD_FONT -pointsize ${HEAD_FONT_SIZE} -fill $TEXT_COLOR \
                     -gravity center -size ${CARD_W}x80 caption:"$line" ${card_file_prefix}-stage1-text.png
                 convert ${card_file_prefix}-stage0.png -page +0+10 ${card_file_prefix}-stage1-text.png \
                     -flatten ${card_file_prefix}-stage1.png
@@ -44,7 +48,7 @@ for lang in "${LANGUAGES[@]}"; do
                 ;;
             3)
                 # Fallacy description
-                convert -background transparent -font $DESC_FONT -pointsize ${DESC_FONT_SIZE} -fill white \
+                convert -background transparent -font $DESC_FONT -pointsize ${DESC_FONT_SIZE} -fill $TEXT_COLOR \
                     -gravity center -size 735x170 caption:"$line" ${card_file_prefix}-stage3-text.png
                 convert ${card_file_prefix}-stage2.png -page +25+110 ${card_file_prefix}-stage3-text.png \
                     -flatten ${card_file_prefix}-stage3.png
@@ -52,11 +56,11 @@ for lang in "${LANGUAGES[@]}"; do
             4)
                 # Fallacy example
                 convert -background transparent -font $EXAMPLE_FONT -pointsize ${EXAMPLE_FONT_SIZE} \
-                    -fill white -gravity center -size 380x360 caption:"$line" ${card_file_prefix}-stage4-text.png
+                    -fill $TEXT_COLOR -gravity center -size 380x360 caption:"$line" ${card_file_prefix}-stage4-text.png
                 convert ${card_file_prefix}-stage3.png -page +315+270 ${card_file_prefix}-stage4-text.png \
                     -flatten ${card_file_prefix}-stage4.png
                 # Fallacy number
-                convert -background transparent -font $NUMBER_FONT -pointsize ${NUMBER_FONT_SIZE} -fill white \
+                convert -background transparent -font $NUMBER_FONT -pointsize ${NUMBER_FONT_SIZE} -fill $TEXT_COLOR \
                     -gravity center -size 40x30 caption:"$color_counter" ${card_file_prefix}-number.png
                 convert ${card_file_prefix}-stage4.png -page +740+580 ${card_file_prefix}-number.png \
                     -flatten ${card_file_prefix}-final.png
