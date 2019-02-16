@@ -121,35 +121,68 @@ def draw_fallacy_box(conf, styles, canvas, fallacy, sheet_type):
     canvas.rect(block_x0 + bg_pad, block_y0 + bg_pad, block_w - bg_pad * 2, block_h - bg_pad * 2, stroke=0, fill=1)
     canvas.restoreState()
 
-    name_x0 = block_x0 + text_pad_x + conf['fallacy_name_x'] * mm
-    name_y0 = block_y0 + text_pad_y + conf['fallacy_name_y'] * mm
-    name_w = conf['fallacy_name_w'] * mm
-    name_h = conf['fallacy_name_h'] * mm
-    draw_frame(canvas, fallacy.name, styles['name'], name_x0, name_y0, name_w, name_h)
+    if sheet_type == 'game':
+        name_x0 = block_x0 + text_pad_x + conf['fallacy_name_x'] * mm
+        name_y0 = block_y0 + text_pad_y + conf['fallacy_name_y'] * mm
+        name_w = conf['fallacy_name_w'] * mm
+        name_h = conf['fallacy_name_h'] * mm
+        draw_frame(canvas, fallacy.name, styles['name'], name_x0, name_y0, name_w, name_h)
 
-    desc_x0 = block_x0 + text_pad_x + conf['fallacy_desc_x'] * mm
-    desc_y0 = block_y0 + text_pad_y + conf['fallacy_desc_y'] * mm
-    desc_w = conf['fallacy_desc_w'] * mm
-    desc_h = conf['fallacy_desc_h'] * mm
-    draw_frame(canvas, fallacy.description, styles['desc'], desc_x0, desc_y0, desc_w, desc_h)
+        desc_x0 = block_x0 + text_pad_x + conf['fallacy_desc_x'] * mm
+        desc_y0 = block_y0 + text_pad_y + conf['fallacy_desc_y'] * mm
+        desc_w = conf['fallacy_desc_w'] * mm
+        desc_h = conf['fallacy_desc_h'] * mm
+        draw_frame(canvas, fallacy.description, styles['desc'], desc_x0, desc_y0, desc_w, desc_h)
 
-    example_x0 = block_x0 + text_pad_x + conf['fallacy_example_x'] * mm
-    example_y0 = block_y0 + text_pad_y + conf['fallacy_example_y'] * mm
-    example_w = conf['fallacy_example_w'] * mm
-    example_h = conf['fallacy_example_h'] * mm
-    draw_frame(canvas, fallacy.example, styles['example'], example_x0, example_y0, example_w, example_h)
+        example_x0 = block_x0 + text_pad_x + conf['fallacy_example_x'] * mm
+        example_y0 = block_y0 + text_pad_y + conf['fallacy_example_y'] * mm
+        example_w = conf['fallacy_example_w'] * mm
+        example_h = conf['fallacy_example_h'] * mm
+        draw_frame(canvas, fallacy.example, styles['example'], example_x0, example_y0, example_w, example_h)
 
-    number_w = conf['fallacy_number_w'] * mm
-    number_h = conf['fallacy_number_h'] * mm
-    draw_frame(canvas, str(fallacy.number), styles['number'], number_x0, number_y0, number_w, number_h)
+        number_w = conf['fallacy_number_w'] * mm
+        number_h = conf['fallacy_number_h'] * mm
+        draw_frame(canvas, str(fallacy.number), styles['number'], number_x0, number_y0, number_w, number_h)
 
-    icon_x0 = block_x0 + text_pad_x + conf['fallacy_icon_x'] * mm
-    icon_y0 = block_y0 + text_pad_y + conf['fallacy_icon_y'] * mm
-    icon_size = conf['fallacy_icon_size'] * mm
-    icon_in_frame = KeepInFrame(icon_size, icon_size, [fallacy.icon])
-    frame = Frame(icon_x0, icon_y0, icon_size, icon_size,
-                  leftPadding=0, bottomPadding=0, rightPadding=0, topPadding=0, showBoundary=0)
-    frame.add(icon_in_frame, canvas)
+        if fallacy.icon is not None:
+            icon_x0 = block_x0 + text_pad_x + conf['fallacy_icon_x'] * mm
+            icon_y0 = block_y0 + text_pad_y + conf['fallacy_icon_y'] * mm
+            icon_size = conf['fallacy_icon_size'] * mm
+            icon_in_frame = KeepInFrame(icon_size, icon_size, [fallacy.icon])
+            frame = Frame(icon_x0, icon_y0, icon_size, icon_size,
+                          leftPadding=0, bottomPadding=0, rightPadding=0, topPadding=0, showBoundary=0)
+            frame.add(icon_in_frame, canvas)
+    else:
+        name_x0 = block_x0 + text_pad_x + conf['st_name_x'] * mm
+        name_y0 = block_y0 + text_pad_y + conf['st_name_y'] * mm
+        name_w = conf['st_name_w'] * mm
+        name_h = conf['st_name_h'] * mm
+        draw_frame(canvas, fallacy.name, styles['name'], name_x0, name_y0, name_w, name_h)
+
+        desc_x0 = block_x0 + text_pad_x + conf['st_desc_x'] * mm
+        desc_y0 = block_y0 + text_pad_y + conf['st_desc_y'] * mm
+        desc_w = conf['st_desc_w'] * mm
+        desc_h = conf['st_desc_h'] * mm
+        draw_frame(canvas, fallacy.description, styles['desc'], desc_x0, desc_y0, desc_w, desc_h)
+
+        example_x0 = block_x0 + text_pad_x + conf['st_example_x'] * mm
+        example_y0 = block_y0 + text_pad_y + conf['st_example_y'] * mm
+        example_w = conf['st_example_w'] * mm
+        example_h = conf['st_example_h'] * mm
+        draw_frame(canvas, fallacy.example, styles['example'], example_x0, example_y0, example_w, example_h)
+
+        number_w = conf['st_number_w'] * mm
+        number_h = conf['st_number_h'] * mm
+        draw_frame(canvas, str(fallacy.number), styles['number'], number_x0, number_y0, number_w, number_h)
+
+        if fallacy.icon is not None:
+            icon_x0 = block_x0 + text_pad_x + conf['st_icon_x'] * mm
+            icon_y0 = block_y0 + text_pad_y + conf['st_icon_y'] * mm
+            icon_size = conf['st_icon_size'] * mm
+            icon_in_frame = KeepInFrame(icon_size, icon_size, [fallacy.icon])
+            frame = Frame(icon_x0, icon_y0, icon_size, icon_size,
+                          leftPadding=0, bottomPadding=0, rightPadding=0, topPadding=0, showBoundary=0)
+            frame.add(icon_in_frame, canvas)
 
 
 def draw_frame(canvas, text, style, x0, y0, w, h):
@@ -162,13 +195,76 @@ def draw_frame(canvas, text, style, x0, y0, w, h):
     frame.add(paragraph_in_frame, canvas)
 
 
-def init_data():
+def init_data(with_se):
     page_size = (297.0, 420.0)
     page_border = 2.0
     stickers_gap = 2.0
     fallacies_num = 45
     table_grid_size = (5, 9)
     sticker_table_grid_size = (5, 5)
+    card_size_x = 56.6
+    card_left_pad = stickers_gap / 2
+    card_size_y = 46.222
+    st_size_x = 56.6
+    st_bg_color_pad = stickers_gap / 2
+    st_size_y = 81.2
+    st_bottom_pad = 17.489
+    fallacy_name_x = 0.0
+    fallacy_name_y = 39.476
+    fallacy_name_w = 56.6
+    fallacy_name_h = 6.0
+    fallacy_desc_x = 1.8
+    fallacy_desc_y = 25.347
+    fallacy_desc_w = 53.0
+    fallacy_desc_h = 12.674
+    fallacy_icon_x = -2.5
+    fallacy_icon_y = -1.3
+    fallacy_icon_size = 28.0
+    fallacy_example_x = 22.0
+    fallacy_example_y = 1.0
+    fallacy_example_w = 28.1
+    fallacy_example_h = 24.1
+    fallacy_number_x = 51.0
+    fallacy_number_y = 0.7
+    fallacy_number_w = 4.0
+    fallacy_number_h = 2.237
+    st_name_x = fallacy_name_x
+    st_name_y = fallacy_name_y
+    st_name_w = fallacy_name_w
+    st_name_h = fallacy_name_h
+    st_desc_x = fallacy_desc_x
+    st_desc_y = fallacy_desc_y
+    st_desc_w = fallacy_desc_w
+    st_desc_h = fallacy_desc_h
+    st_icon_x = fallacy_icon_x
+    st_icon_y = fallacy_icon_y
+    st_icon_size = fallacy_icon_size
+    st_example_x = fallacy_example_x
+    st_example_y = fallacy_example_y
+    st_example_w = fallacy_example_w
+    st_example_h = fallacy_example_h
+    st_number_x = 51.0
+    st_number_y = 0.7
+    st_number_w = fallacy_number_w
+    st_number_h = fallacy_number_h
+    name_font_size = 8.5
+    desc_font_size = 6.5
+    example_font_size = 5
+    number_font_size = 6
+    if with_se:
+        fallacies_num = 54
+        table_grid_size = (6, 9)
+        card_size_x = 48.11
+        fallacy_name_w = 47.0
+        fallacy_desc_x = 0
+        fallacy_desc_w = 47.0
+        fallacy_icon_x = -3.5
+        fallacy_icon_size = 23.0
+        fallacy_example_x = 18.0
+        fallacy_example_w = 28.1
+        fallacy_number_x = 42.35
+        st_icon_size = 26.0
+
     conf = {
         'fallacies_num': fallacies_num,
         'page_size': A3,
@@ -185,34 +281,51 @@ def init_data():
         'st_pages_single': ceil(fallacies_num / (sticker_table_grid_size[0] * sticker_table_grid_size[1])),
         'st_pages_double': ceil(fallacies_num * 2 / (sticker_table_grid_size[0] * sticker_table_grid_size[1])),
         'page_border': page_border,
-        'card_size_x': 56.6,
-        'card_left_pad': stickers_gap / 2,
-        'card_size_y': 46.222,
-        'st_size_x': 56.6,
-        'st_bg_color_pad': stickers_gap / 2,
-        'st_size_y': 81.2,
-        'st_bottom_pad': 17.489,
-        'fallacy_name_x': 0.0,
-        'fallacy_name_y': 39.476,
-        'fallacy_name_w': 56.6,
-        'fallacy_name_h': 6.0,
-        'fallacy_desc_x': 1.8,
-        'fallacy_desc_y': 25.347,
-        'fallacy_desc_w': 53.0,
-        'fallacy_desc_h': 12.674,
-        'fallacy_icon_x': -2.5,
-        'fallacy_icon_y': -1.3,
-        'fallacy_icon_size': 28.0,
-        'fallacy_example_x': 22.0,
-        'fallacy_example_y': 1.0,
-        'fallacy_example_w': 28.1,
-        'fallacy_example_h': 24.1,
-        'fallacy_number_x': 51.0,
-        'fallacy_number_y': 0.7,
-        'st_number_x': 51.0,
-        'st_number_y': 0.7,
-        'fallacy_number_w': 4.0,
-        'fallacy_number_h': 2.237,
+        'card_size_x': card_size_x,
+        'card_left_pad': card_left_pad,
+        'card_size_y': card_size_y,
+        'st_size_x': st_size_x,
+        'st_bg_color_pad': st_bg_color_pad,
+        'st_size_y': st_size_y,
+        'st_bottom_pad': st_bottom_pad,
+        'fallacy_name_x': fallacy_name_x,
+        'fallacy_name_y': fallacy_name_y,
+        'fallacy_name_w': fallacy_name_w,
+        'fallacy_name_h': fallacy_name_h,
+        'fallacy_desc_x': fallacy_desc_x,
+        'fallacy_desc_y': fallacy_desc_y,
+        'fallacy_desc_w': fallacy_desc_w,
+        'fallacy_desc_h': fallacy_desc_h,
+        'fallacy_icon_x': fallacy_icon_x,
+        'fallacy_icon_y': fallacy_icon_y,
+        'fallacy_icon_size': fallacy_icon_size,
+        'fallacy_example_x': fallacy_example_x,
+        'fallacy_example_y': fallacy_example_y,
+        'fallacy_example_w': fallacy_example_w,
+        'fallacy_example_h': fallacy_example_h,
+        'fallacy_number_x': fallacy_number_x,
+        'fallacy_number_y': fallacy_number_y,
+        'fallacy_number_w': fallacy_number_w,
+        'fallacy_number_h': fallacy_number_h,
+        'st_name_x': st_name_x,
+        'st_name_y': st_name_y,
+        'st_name_w': st_name_w,
+        'st_name_h': st_name_h,
+        'st_desc_x': st_desc_x,
+        'st_desc_y': st_desc_y,
+        'st_desc_w': st_desc_w,
+        'st_desc_h': st_desc_h,
+        'st_icon_x': st_icon_x,
+        'st_icon_y': st_icon_y,
+        'st_icon_size': st_icon_size,
+        'st_example_x': st_example_x,
+        'st_example_y': st_example_y,
+        'st_example_w': st_example_w,
+        'st_example_h': st_example_h,
+        'st_number_x': st_number_x,
+        'st_number_y': st_number_y,
+        'st_number_w': st_number_w,
+        'st_number_h': st_number_h,
         'input_file_prefix': 'fallacies-',
         'input_file_suffix': '.txt',
         'output_file_prefix': 'fallacies-',
@@ -246,10 +359,6 @@ def init_data():
     desc_font = name_font
     example_font = 'LiberationSans-BoldItalic'
     number_font = name_font
-    name_font_size = 8.5
-    desc_font_size = 6.5
-    example_font_size = 5
-    number_font_size = 6
     styles = {
         'name': ParagraphStyle(
             name='name',
@@ -285,7 +394,7 @@ def init_data():
     }
 
     colors = {
-        0: '#3CAFEE', 1: '#28A8EC', 2: '#159FEA', 3: '#1492D6', 4: '#1285C2',
+        0: '#000000', 1: '#28A8EC', 2: '#159FEA', 3: '#1492D6', 4: '#1285C2',
         5: '#1078AF', 6: '#0E6A9C', 7: '#0D5C88', 8: '#0B5075',
         9: '#DE4549', 10: '#DA3236', 11: '#CF2529', 12: '#BB2226', 13: '#A81E21',
         14: '#951A1D', 15: '#81161A', 16: '#6C1315', 17: '#581012',
@@ -294,17 +403,18 @@ def init_data():
         27: '#9593BB', 28: '#8D8BB6', 29: '#8482B0', 30: '#7A78AB', 31: '#7370A5',
         32: '#69669F', 33: '#625F98', 34: '#5C598E', 35: '#555386',
         36: '#5BB9AB', 37: '#4DB3A4', 38: '#46A496', 39: '#409588', 40: '#39867A',
-        41: '#33776C', 42: '#2D6860', 43: '#265953', 44: '#204A45'
+        41: '#33776C', 42: '#2D6860', 43: '#265953', 44: '#204A45',
+        45: '#666666', 46: '#5E5E5E', 47: '#565656', 48: '#4E4E4E', 49: '#464646',
+        50: '#3E3E3E', 51: '#363636', 52: '#2E2E2E', 53: '#262626'
     }
 
-    languages = ('rus', 'eng')
-
-    return conf, styles, colors, languages
+    return conf, styles, colors
 
 
 def main():
-    conf, styles, colors, languages = init_data()
-    for language in languages:
+    for language in 'rus', 'rus-plus-se', 'eng':
+        with_se = language[-3:] == '-se'
+        conf, styles, colors = init_data(with_se)
         input_file_name = ''.join((conf['input_file_prefix'], language, conf['input_file_suffix']))
         with open(input_file_name) as input_file:
             lines = input_file.readlines()
@@ -337,7 +447,7 @@ def main():
             elif i % 4 == 3:
                 current_example = line.strip().replace('\\\\n', '<br/>')
                 current_icon_fname = ''.join((conf['icons_path'], str(i // 4).rjust(2, '0'), conf['icons_suffix']))
-                current_icon = PdfImage(current_icon_fname)
+                current_icon = PdfImage(current_icon_fname) if path.exists(current_icon_fname) else None
                 current_bg_color = colors[i // 4]
                 current_pdf_coords = ((i // 4) // conf['table_grid_y'] * conf['block_size_x'] + conf['page_border'],
                                       conf['page_size_y'] + conf['page_border']
