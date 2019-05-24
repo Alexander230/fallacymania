@@ -195,6 +195,18 @@ def draw_frame(canvas, text, style, x0, y0, w, h):
     frame.add(paragraph_in_frame, canvas)
 
 
+def get_icon_filename(line, with_se):
+    icons_path = 'icons/vector/'
+    icons_suffix = '.pdf'
+    index = line // 4
+    if with_se:
+        if index < 8 or index == 38 or index == 39:
+            index += 1
+        elif index == 8:
+            index = 38
+    return ''.join((icons_path, str(index).rjust(2, '0'), icons_suffix))
+
+
 def init_data(with_se):
     page_size = (297.0, 420.0)
     page_border = 2.0
@@ -262,7 +274,7 @@ def init_data(with_se):
         fallacy_icon_size = 23.0
         fallacy_example_x = 18.0
         fallacy_example_w = 28.1
-        fallacy_number_x = 42.35
+        fallacy_number_x = 43.6
         st_icon_size = 26.0
 
     conf = {
@@ -334,9 +346,7 @@ def init_data(with_se):
         'st_output_file_prefix': 'stickers-',
         'st_single_prefix': '-single-',
         'st_double_prefix': '-double-',
-        'st_output_file_suffix': '.pdf',
-        'icons_path': 'icons/vector/',
-        'icons_suffix': '.pdf'
+        'st_output_file_suffix': '.pdf'
     }
 
     fonts_dir = '/usr/share/fonts/'
@@ -394,7 +404,7 @@ def init_data(with_se):
     }
 
     colors = {
-        0: '#000000', 1: '#28A8EC', 2: '#159FEA', 3: '#1492D6', 4: '#1285C2',
+        0: '#3CAFEE', 1: '#28A8EC', 2: '#159FEA', 3: '#1492D6', 4: '#1285C2',
         5: '#1078AF', 6: '#0E6A9C', 7: '#0D5C88', 8: '#0B5075',
         9: '#DE4549', 10: '#DA3236', 11: '#CF2529', 12: '#BB2226', 13: '#A81E21',
         14: '#951A1D', 15: '#81161A', 16: '#6C1315', 17: '#581012',
@@ -446,7 +456,7 @@ def main():
                 current_description = line.strip().replace('\\\\n', '<br/>')
             elif i % 4 == 3:
                 current_example = line.strip().replace('\\\\n', '<br/>')
-                current_icon_fname = ''.join((conf['icons_path'], str(i // 4).rjust(2, '0'), conf['icons_suffix']))
+                current_icon_fname = get_icon_filename(i, with_se)
                 current_icon = PdfImage(current_icon_fname) if path.exists(current_icon_fname) else None
                 current_bg_color = colors[i // 4]
                 current_pdf_coords = ((i // 4) // conf['table_grid_y'] * conf['block_size_x'] + conf['page_border'],
