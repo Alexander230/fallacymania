@@ -8,7 +8,7 @@ from pdfrw.buildxobj import pagexobj
 from pdfrw.toreportlab import makerl
 from reportlab.lib.colors import HexColor, white
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT, TA_LEFT
-from reportlab.lib.pagesizes import A3
+from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
 from reportlab.pdfbase.pdfmetrics import registerFont, registerFontFamily
@@ -98,6 +98,21 @@ def draw_fallacy_box(conf, styles, canvas, fallacy, sheet_type):
         bg_pad = 0.0
         number_x0 = block_x0 + text_pad_x + conf['fallacy_number_x'] * mm
         number_y0 = block_y0 + text_pad_y + conf['fallacy_number_y'] * mm
+        fallacy_name_x = conf['fallacy_name_x']
+        fallacy_name_y = conf['fallacy_name_y']
+        fallacy_name_w = conf['fallacy_name_w']
+        fallacy_name_h = conf['fallacy_name_h']
+        fallacy_desc_x = conf['fallacy_desc_x']
+        fallacy_desc_y = conf['fallacy_desc_y']
+        fallacy_desc_w = conf['fallacy_desc_w']
+        fallacy_desc_h = conf['fallacy_desc_h']
+        fallacy_example_x = conf['fallacy_example_x']
+        fallacy_example_y = conf['fallacy_example_y']
+        fallacy_example_w = conf['fallacy_example_w']
+        fallacy_example_h = conf['fallacy_example_h']
+        fallacy_icon_x = conf['fallacy_icon_x']
+        fallacy_icon_y = conf['fallacy_icon_y']
+        fallacy_icon_size = conf['fallacy_icon_size']
     else:
         if sheet_type == 'st_single':
             block_x0 = fallacy.pdf_coords_st_single[0] * mm
@@ -115,37 +130,52 @@ def draw_fallacy_box(conf, styles, canvas, fallacy, sheet_type):
         bg_pad = conf['st_bg_color_pad'] * mm
         number_x0 = block_x0 + bg_pad + conf['st_number_x'] * mm
         number_y0 = block_y0 + bg_pad + conf['st_number_y'] * mm
+        fallacy_name_x = conf['st_fallacy_name_x']
+        fallacy_name_y = conf['st_fallacy_name_y']
+        fallacy_name_w = conf['st_fallacy_name_w']
+        fallacy_name_h = conf['st_fallacy_name_h']
+        fallacy_desc_x = conf['st_fallacy_desc_x']
+        fallacy_desc_y = conf['st_fallacy_desc_y']
+        fallacy_desc_w = conf['st_fallacy_desc_w']
+        fallacy_desc_h = conf['st_fallacy_desc_h']
+        fallacy_example_x = conf['st_fallacy_example_x']
+        fallacy_example_y = conf['st_fallacy_example_y']
+        fallacy_example_w = conf['st_fallacy_example_w']
+        fallacy_example_h = conf['st_fallacy_example_h']
+        fallacy_icon_x = conf['st_fallacy_icon_x']
+        fallacy_icon_y = conf['st_fallacy_icon_y']
+        fallacy_icon_size = conf['st_fallacy_icon_size']
 
     canvas.saveState()
     canvas.setFillColor(HexColor(fallacy.bg_color))
     canvas.rect(block_x0 + bg_pad, block_y0 + bg_pad, block_w - bg_pad * 2, block_h - bg_pad * 2, stroke=0, fill=1)
     canvas.restoreState()
 
-    name_x0 = block_x0 + text_pad_x + conf['fallacy_name_x'] * mm
-    name_y0 = block_y0 + text_pad_y + conf['fallacy_name_y'] * mm
-    name_w = conf['fallacy_name_w'] * mm
-    name_h = conf['fallacy_name_h'] * mm
+    name_x0 = block_x0 + text_pad_x + fallacy_name_x * mm
+    name_y0 = block_y0 + text_pad_y + fallacy_name_y * mm
+    name_w = fallacy_name_w * mm
+    name_h = fallacy_name_h * mm
     draw_frame(canvas, fallacy.name, styles['name'], name_x0, name_y0, name_w, name_h)
 
-    desc_x0 = block_x0 + text_pad_x + conf['fallacy_desc_x'] * mm
-    desc_y0 = block_y0 + text_pad_y + conf['fallacy_desc_y'] * mm
-    desc_w = conf['fallacy_desc_w'] * mm
-    desc_h = conf['fallacy_desc_h'] * mm
+    desc_x0 = block_x0 + text_pad_x + fallacy_desc_x * mm
+    desc_y0 = block_y0 + text_pad_y + fallacy_desc_y * mm
+    desc_w = fallacy_desc_w * mm
+    desc_h = fallacy_desc_h * mm
     draw_frame(canvas, fallacy.description, styles['desc'], desc_x0, desc_y0, desc_w, desc_h)
 
-    example_x0 = block_x0 + text_pad_x + conf['fallacy_example_x'] * mm
-    example_y0 = block_y0 + text_pad_y + conf['fallacy_example_y'] * mm
-    example_w = conf['fallacy_example_w'] * mm
-    example_h = conf['fallacy_example_h'] * mm
+    example_x0 = block_x0 + text_pad_x + fallacy_example_x * mm
+    example_y0 = block_y0 + text_pad_y + fallacy_example_y * mm
+    example_w = fallacy_example_w * mm
+    example_h = fallacy_example_h * mm
     draw_frame(canvas, fallacy.example, styles['example'], example_x0, example_y0, example_w, example_h)
 
     number_w = conf['fallacy_number_w'] * mm
     number_h = conf['fallacy_number_h'] * mm
     draw_frame(canvas, str(fallacy.number), styles['number'], number_x0, number_y0, number_w, number_h)
 
-    icon_x0 = block_x0 + text_pad_x + conf['fallacy_icon_x'] * mm
-    icon_y0 = block_y0 + text_pad_y + conf['fallacy_icon_y'] * mm
-    icon_size = conf['fallacy_icon_size'] * mm
+    icon_x0 = block_x0 + text_pad_x + fallacy_icon_x * mm
+    icon_y0 = block_y0 + text_pad_y + fallacy_icon_y * mm
+    icon_size = fallacy_icon_size * mm
     icon_in_frame = KeepInFrame(icon_size, icon_size, [fallacy.icon])
     frame = Frame(icon_x0, icon_y0, icon_size, icon_size,
                   leftPadding=0, bottomPadding=0, rightPadding=0, topPadding=0, showBoundary=0)
@@ -163,15 +193,15 @@ def draw_frame(canvas, text, style, x0, y0, w, h):
 
 
 def init_data():
-    page_size = (297.0, 420.0)
+    page_size = (210.0, 297.0)
     page_border = 2.0
     stickers_gap = 2.0
     fallacies_num = 45
-    table_grid_size = (5, 9)
-    sticker_table_grid_size = (5, 5)
+    table_grid_size = (3, 5)
+    sticker_table_grid_size = (3, 3)
     conf = {
         'fallacies_num': fallacies_num,
-        'page_size': A3,
+        'page_size': A4,
         'page_size_x': page_size[0] - page_border * 2,
         'page_size_y': page_size[1] - page_border * 2,
         'table_grid_x': table_grid_size[0],
@@ -182,35 +212,53 @@ def init_data():
         'block_size_y': (page_size[1] - page_border * 2) / table_grid_size[1],
         'st_block_size_x': (page_size[0] - page_border * 2) / sticker_table_grid_size[0],
         'st_block_size_y': (page_size[1] - page_border * 2) / sticker_table_grid_size[1],
+        'game_pages': ceil(fallacies_num / (table_grid_size[0] * table_grid_size[1])),
         'st_pages_single': ceil(fallacies_num / (sticker_table_grid_size[0] * sticker_table_grid_size[1])),
         'st_pages_double': ceil(fallacies_num * 2 / (sticker_table_grid_size[0] * sticker_table_grid_size[1])),
         'page_border': page_border,
         'card_size_x': 56.6,
         'card_left_pad': stickers_gap / 2,
         'card_size_y': 46.222,
-        'st_size_x': 56.6,
+        'st_size_x': 64,
         'st_bg_color_pad': stickers_gap / 2,
         'st_size_y': 81.2,
         'st_bottom_pad': 17.489,
+        'st_fallacy_name_x': 0.0,
+        'st_fallacy_name_y': 65.476,
+        'st_fallacy_name_w': 65.6,
+        'st_fallacy_name_h': 6.0,
+        'st_fallacy_desc_x': 1.8,
+        'st_fallacy_desc_y': 48.347,
+        'st_fallacy_desc_w': 62.0,
+        'st_fallacy_desc_h': 12.674,
+        'st_fallacy_icon_x': 15,
+        'st_fallacy_icon_y': 12,
+        'st_fallacy_icon_size': 35.0,
+        'st_fallacy_example_x': 0.0,
+        'st_fallacy_example_y': -10.0,
+        'st_fallacy_example_w': 65.1,
+        'st_fallacy_example_h': 24.1,
+        'st_fallacy_number_x': 51.0,
+        'st_fallacy_number_y': 0.7,
         'fallacy_name_x': 0.0,
-        'fallacy_name_y': 39.476,
-        'fallacy_name_w': 56.6,
+        'fallacy_name_y': 49.476,
+        'fallacy_name_w': 65.6,
         'fallacy_name_h': 6.0,
         'fallacy_desc_x': 1.8,
-        'fallacy_desc_y': 25.347,
-        'fallacy_desc_w': 53.0,
+        'fallacy_desc_y': 35.347,
+        'fallacy_desc_w': 62.0,
         'fallacy_desc_h': 12.674,
-        'fallacy_icon_x': -2.5,
-        'fallacy_icon_y': -1.3,
-        'fallacy_icon_size': 28.0,
-        'fallacy_example_x': 22.0,
-        'fallacy_example_y': 1.0,
-        'fallacy_example_w': 28.1,
+        'fallacy_icon_x': -1.5,
+        'fallacy_icon_y': 3,
+        'fallacy_icon_size': 33.0,
+        'fallacy_example_x': 27.5,
+        'fallacy_example_y': 8.0,
+        'fallacy_example_w': 37.1,
         'fallacy_example_h': 24.1,
-        'fallacy_number_x': 51.0,
+        'fallacy_number_x': 62.0,
         'fallacy_number_y': 0.7,
-        'st_number_x': 51.0,
-        'st_number_y': 0.7,
+        'st_number_x': 62.0,
+        'st_number_y': 1.0,
         'fallacy_number_w': 4.0,
         'fallacy_number_h': 2.237,
         'input_file_prefix': 'fallacies-',
@@ -219,9 +267,8 @@ def init_data():
         'output_file_suffix': '.pdf',
         'stickers_folder': 'stickers/',
         'st_output_file_prefix': 'stickers-',
-        'st_single_prefix': '-single-',
-        'st_double_prefix': '-double-',
-        'st_output_file_suffix': '.pdf',
+        'st_single': '-single.pdf',
+        'st_double': '-double.pdf',
         'icons_path': 'icons/vector/',
         'icons_suffix': '.pdf'
     }
@@ -246,10 +293,10 @@ def init_data():
     desc_font = name_font
     example_font = 'LiberationSans-BoldItalic'
     number_font = name_font
-    name_font_size = 8.5
-    desc_font_size = 6.5
-    example_font_size = 5
-    number_font_size = 6
+    name_font_size = 11
+    desc_font_size = 8
+    example_font_size = 7
+    number_font_size = 8
     styles = {
         'name': ParagraphStyle(
             name='name',
@@ -315,7 +362,7 @@ def main():
         current_png_path = ''
         current_icon = None
         current_bg_color = ''
-        current_pdf_coords = (0, 0)
+        current_pdf_coords = (0, 0, 0)
         current_pdf_coords_st_single = (0, 0)
         current_pdf_coords_st_double1 = (0, 0)
         current_pdf_coords_st_double2 = (0, 0)
@@ -339,9 +386,13 @@ def main():
                 current_icon_fname = ''.join((conf['icons_path'], str(i // 4).rjust(2, '0'), conf['icons_suffix']))
                 current_icon = PdfImage(current_icon_fname)
                 current_bg_color = colors[i // 4]
-                current_pdf_coords = ((i // 4) // conf['table_grid_y'] * conf['block_size_x'] + conf['page_border'],
+                current_gx = (i // 4) % (conf['table_grid_x'] *  conf['game_pages'])
+                current_x = current_gx % conf['table_grid_x']
+                current_page = current_gx // conf['table_grid_x']
+                current_y = (i // 4) // (conf['table_grid_x'] *  conf['game_pages'])
+                current_pdf_coords = (current_x * conf['block_size_x'] + conf['page_border'],
                                       conf['page_size_y'] + conf['page_border']
-                                      - ((i // 4) % conf['table_grid_y'] + 1) * conf['block_size_y'])
+                                      - (current_y + 1) * conf['block_size_y'], current_page)
                 st_single_position = (i // 4) % (conf['st_table_grid_x'] * conf['st_table_grid_y'])
                 st_double1_position = ((i // 4) * 2) % (conf['st_table_grid_x'] * conf['st_table_grid_y'])
                 st_double2_position = ((i // 4) * 2 + 1) % (conf['st_table_grid_x'] * conf['st_table_grid_y'])
@@ -358,30 +409,40 @@ def main():
         stickers_folder = path.dirname(conf['stickers_folder'])
         if not path.exists(stickers_folder):
             makedirs(stickers_folder)
-        st_single_out_canv = []
-        st_double_out_canv = []
-        for i in range(1, conf['st_pages_single'] + 1):
-            file_name = ''.join((conf['stickers_folder'], conf['st_output_file_prefix'], language,
-                                 conf['st_single_prefix'], str(i), conf['st_output_file_suffix']))
-            st_single_out_canv.append(Canvas(file_name, pagesize=conf['page_size']))
-        for i in range(1, conf['st_pages_double'] + 1):
-            file_name = ''.join((conf['stickers_folder'], conf['st_output_file_prefix'], language,
-                                 conf['st_double_prefix'], str(i), conf['st_output_file_suffix']))
-            st_double_out_canv.append(Canvas(file_name, pagesize=conf['page_size']))
+        st_single_out_file_name = ''.join((conf['stickers_folder'], conf['st_output_file_prefix'], language,
+                                 conf['st_single']))
+        st_double_out_file_name = ''.join((conf['stickers_folder'], conf['st_output_file_prefix'], language,
+                                 conf['st_double']))
+        st_single_out_canv = Canvas(filename=st_single_out_file_name, pagesize=conf['page_size'])
+        st_double_out_canv = Canvas(filename=st_double_out_file_name, pagesize=conf['page_size'])
 
-        for fallacy in fallacies:
-            draw_fallacy_box(conf, styles, canvas_game, fallacy, 'game')
-            canv_st_single = st_single_out_canv[fallacy.number // (conf['st_table_grid_x'] * conf['st_table_grid_y'])]
-            canv_st_double1 = st_double_out_canv[(fallacy.number * 2)
-                                                 // (conf['st_table_grid_x'] * conf['st_table_grid_y'])]
-            canv_st_double2 = st_double_out_canv[(fallacy.number * 2 + 1)
-                                                 // (conf['st_table_grid_x'] * conf['st_table_grid_y'])]
-            draw_fallacy_box(conf, styles, canv_st_single, fallacy, 'st_single')
-            draw_fallacy_box(conf, styles, canv_st_double1, fallacy, 'st_double1')
-            draw_fallacy_box(conf, styles, canv_st_double2, fallacy, 'st_double2')
+        for page in range(conf['st_pages_single']):
+            for y in range(conf['st_table_grid_y']):
+                for x in range(conf['st_table_grid_x']):
+                    fallacy_num = (page * conf['st_table_grid_y'] + y) * conf['st_table_grid_x'] + x
+                    fallacy = fallacies[fallacy_num]
+                    draw_fallacy_box(conf, styles, st_single_out_canv, fallacy, 'st_single')
+            st_single_out_canv.showPage()
+
+        for page in range(conf['st_pages_double']):
+            for y in range(conf['st_table_grid_y']):
+                for x in range(conf['st_table_grid_x']):
+                    fallacy_num2 = (page * conf['st_table_grid_y'] + y) * conf['st_table_grid_x'] + x
+                    fallacy_num = fallacy_num2 // 2
+                    fallacy = fallacies[fallacy_num]
+                    ty = 'st_double1' if fallacy_num2 % 2 == 0 else 'st_double2'
+                    draw_fallacy_box(conf, styles, st_double_out_canv, fallacy, ty)
+            st_double_out_canv.showPage()
+
+        for page in range(conf['game_pages']):
+            for fallacy in fallacies:
+                if fallacy.pdf_coords[2] == page:
+                    draw_fallacy_box(conf, styles, canvas_game, fallacy, 'game')
+            canvas_game.showPage()
 
         canvas_game.save()
-        [canvas.save() for canvas in st_single_out_canv + st_double_out_canv]
+        st_single_out_canv.save()
+        st_double_out_canv.save()
 
 
 if __name__ == "__main__":

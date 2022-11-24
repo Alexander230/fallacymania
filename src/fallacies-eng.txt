@@ -177,4 +177,4 @@ Associating the values of one group\\nwith the values of another due to\\nsuperf
 Noncentral fallacy
 icons/презумпция_типичности.png
 X is in a category whose archetypal\\nmember gives us a certain emotional\\nreaction. Therefore, we should apply that\\nemotional reaction to X, even though it is\\nnot a central category member.
-"Abortion is murder, we shall\\ngive 10 years of prison for\\nit!"\\n"Chess are sport, so we shall\\nadd them to the Olympics\\nprogram."
+"Abortion is murder, we shall\\ngive 10 years of prison for it!"\\n"Chess are sport, so we shall\\nadd them to the Olympics\\nprogram."
